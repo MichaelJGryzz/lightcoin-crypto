@@ -71,25 +71,24 @@ class Withdrawal extends Transaction {
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
 
-// Account creation code
-const myAccount = new Account("MJG");
+const myAccount = new Account("MJG"); // Account creation code
 
-console.log('Starting Balance: ', myAccount.balance);
+console.log('Starting Balance: $', myAccount.balance);
 
-console.log('Attempting to withdraw just $1 should fail...');
+console.log('Attempting to withdraw just $1.00 should fail...');
 const t1 = new Withdrawal(1, myAccount);
 console.log('Commit result:', t1.commit());
-console.log('Account Balance: ', myAccount.balance);
+console.log('Account Balance: $', myAccount.balance);
 
 console.log('A deposit will always succeed...');
 const t2 = new Deposit(120.00, myAccount);
 console.log('Commit result:', t2.commit());
-console.log('Account Balance: ', myAccount.balance);
+console.log('Account Balance: $', myAccount.balance);
 
-console.log('Withdrawal of 115 should be allowed now...');
+console.log('Withdrawal of $115.00 should be allowed now...');
 const t3 = new Withdrawal(115.00, myAccount);
 console.log('Commit result:', t3.commit());
-console.log('Current Account Balance: ', myAccount.balance);
+console.log('Current Account Balance: $', myAccount.balance);
 console.log("I need more money 😟");
 
 console.log('Account Transaction History: ', myAccount.transactions);
